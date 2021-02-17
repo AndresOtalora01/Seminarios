@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.practicam08uf1.R
 import com.example.practicam08uf1.databinding.FragmentListBinding
+import com.example.practicam08uf1.models.ListAdapter
 import com.example.practicam08uf1.models.Seminario
 import com.example.practicam08uf1.models.SeminarioViewModel
 import com.example.practicam08uf1.network.ApiClient
@@ -25,6 +25,7 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
     private lateinit var binding: FragmentListBinding
     private lateinit var mSeminarioViewModel: SeminarioViewModel
     private lateinit var refreshLayout: SwipeRefreshLayout
+    private lateinit var listaSeminarios: List<Seminario>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +45,8 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
         mSeminarioViewModel.readAllData.observe(viewLifecycleOwner, Observer { seminario ->
             adapter.setData(seminario)
         })
+
+
 
         refreshLayout = binding.swipeRefreshLayout
         refreshLayout.setOnRefreshListener {
@@ -69,8 +72,8 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
             ) {
                 if (response.code() == 200) {
                     Log.d("Buscaminas", response.body().toString())
-                    var listaSeminario: List<Seminario>? = response.body()
-                    insertDataToDatabase(listaSeminario)
+                    listaSeminarios = response.body()!!
+                    insertDataToDatabase(listaSeminarios)
                 } else {
                     Log.d("Buscaminas", "no funciona")
                 }
@@ -89,6 +92,7 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
     }
 
     override fun onSeminarioClick(position: Int) {
-
+        val action = ListFragmentDirections.actionListFragmentToItemFragment(listaSeminarios.get(position))
+        findNavController().navigate(action)
     }
 }

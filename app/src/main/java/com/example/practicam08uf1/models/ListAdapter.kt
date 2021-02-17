@@ -1,15 +1,12 @@
-package com.example.practicam08uf1.fragments
+package com.example.practicam08uf1.models
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.practicam08uf1.R
-import com.example.practicam08uf1.models.Seminario
-import kotlinx.android.synthetic.main.fragment_item.view.*
 import kotlinx.android.synthetic.main.seminario_row.view.*
 
 class ListAdapter(private val listener: OnSeminarioClickListener) :

@@ -3,27 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listFragment">
+    app:startDestination="@id/nav_list_fragment">
 
     <fragment
-        android:id="@+id/listFragment"
+        android:id="@+id/nav_list_fragment"
         android:name="com.example.practicam08uf1.fragments.ListFragment"
         android:label="Lista"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_itemFragment"
-            app:destination="@id/itemFragment" />
+            app:destination="@id/nav_item_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_listFragment_to_aboutFragment"
+            app:destination="@id/nav_about_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
-        android:id="@+id/itemFragment"
+        android:id="@+id/nav_item_fragment"
         android:name="com.example.practicam08uf1.fragments.ItemFragment"
-        android:label="Item"
+        android:label="Seminario"
         tools:layout="@layout/fragment_item" >
         <action
             android:id="@+id/action_itemFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/nav_list_fragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
         <argument
             android:name="seminario"
             app:argType="com.example.practicam08uf1.models.Seminario" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_about_fragment"
+        android:name="com.example.practicam08uf1.fragments.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_listFragment"
+            app:destination="@id/nav_list_fragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
 </navigation>
