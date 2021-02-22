@@ -46,8 +46,6 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
             adapter.setData(seminario)
         })
 
-
-
         refreshLayout = binding.swipeRefreshLayout
         refreshLayout.setOnRefreshListener {
             getAllSeminarios()

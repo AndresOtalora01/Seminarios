@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+<data>
+<variable
+    name="seminario"
+    type="com.example.practicam08uf1.models.Seminario" />
+</data>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +17,7 @@
 
 
     <ImageView
+        android:imagen="@{seminario.logo}"
         android:id="@+id/ivImagen"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -26,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_italic"
-        android:text="240"
+        android:text="@{String.valueOf(seminario.numero_seminario)}"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +53,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:gravity="center_horizontal"
-        android:text="Tecnología híbrida SEAT"
+        android:text="@{seminario.titulo}"
         android:textSize="18sp"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/black"
@@ -61,7 +71,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Seat España"
+        android:text="@{seminario.empresa_organizadora}"
         android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +88,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:gravity="center_horizontal"
-        android:text="Centro de formación GM"
+        android:text="@{seminario.ubicacion.centro}"
         android:fontFamily="@font/poppins_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -92,7 +102,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Avenida de la industria nº6"
+        android:text="@{seminario.ubicacion.direccion}"
         android:fontFamily="@font/poppins_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +115,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="28100"
+        android:text="@{seminario.ubicacion.cp}"
         android:fontFamily="@font/poppins_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Alcobendas"
+        android:text="@{seminario.ubicacion.ciudad}"
         android:fontFamily="@font/poppins_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,8 +138,10 @@
         android:fontFamily="@font/poppins_regular"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Madrid"
+        android:text="@{seminario.ubicacion.provincia}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCiutat" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

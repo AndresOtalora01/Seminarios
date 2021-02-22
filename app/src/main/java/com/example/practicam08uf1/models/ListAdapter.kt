@@ -38,7 +38,7 @@ class ListAdapter(private val listener: OnSeminarioClickListener) :
 
         val currentItem = listaSeminarios[position]
 
-        if (!currentItem.logo.isEmpty() || currentItem.logo != null) {
+        if (!currentItem.logo.isEmpty()) {
             Glide.with(holder.itemView.context)
                 .load(currentItem.logo)
                 .placeholder(R.drawable.animated_progress)

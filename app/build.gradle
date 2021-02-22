@@ -4,13 +4,16 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
     id "androidx.navigation.safeargs.kotlin"
-
 }
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+
+    dataBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "com.example.practicam08uf1"
         minSdkVersion 26

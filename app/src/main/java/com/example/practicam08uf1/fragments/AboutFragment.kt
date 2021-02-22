@@ -1,10 +1,9 @@
 package com.example.practicam08uf1.fragments
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.practicam08uf1.R
 import com.example.practicam08uf1.databinding.FragmentAboutBinding
 import com.example.practicam08uf1.databinding.FragmentItemBinding
@@ -18,7 +17,7 @@ class AboutFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_about, container, false)
-
+        setHasOptionsMenu(true)
         binding = FragmentAboutBinding.bind(view)
 
         binding.cardView.setOnClickListener {
@@ -37,5 +36,9 @@ class AboutFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+        return
+    }
 
 }
