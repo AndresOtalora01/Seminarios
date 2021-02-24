@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/lightList"
+        android:icon="@drawable/ic_light"
+        android:title="Compartir"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/andorraList"
+        android:icon="@drawable/ic_ski"
+        android:title="Andorra"
+        app:showAsAction="ifRoom"/>
+</menu>

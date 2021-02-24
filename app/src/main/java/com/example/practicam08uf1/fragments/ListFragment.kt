@@ -2,9 +2,7 @@ package com.example.practicam08uf1.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -35,7 +33,7 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
 
         val view = inflater.inflate(R.layout.fragment_list, container, false)
         binding = FragmentListBinding.bind(view)
-
+        setHasOptionsMenu(true)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = ListAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -93,4 +91,9 @@ class ListFragment : Fragment(), ListAdapter.OnSeminarioClickListener {
         val action = ListFragmentDirections.actionListFragmentToItemFragment(listaSeminarios.get(position))
         findNavController().navigate(action)
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menulist, menu)
+        return
+    }
+
 }

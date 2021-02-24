@@ -1,10 +1,8 @@
 package com.example.practicam08uf1.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -25,7 +23,7 @@ class ItemFragment : Fragment() {
         // Inflate the layout for this fragment
         val fragmentItemBinding: FragmentItemBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_item, container, false)
-
+        setHasOptionsMenu(true)
         fragmentItemBinding.seminario = args.seminario
 //        val view = inflater.inflate(R.layout.fragment_item, container, false)
 //        binding = FragmentItemBinding.bind(view)
@@ -49,6 +47,9 @@ class ItemFragment : Fragment() {
 //        return binding.root
         return fragmentItemBinding.root
     }
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_item, menu)
+        return
+    }
 
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/parachuteItem"
+        android:icon="@drawable/ic_parachute"
+        android:title="Paracaídas"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/bikeItem"
+        android:icon="@drawable/ic_bike"
+        android:title="Bicicleta"
+        app:showAsAction="ifRoom"/>
+</menu>
